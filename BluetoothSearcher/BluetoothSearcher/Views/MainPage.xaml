@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BluetoothSearcher.Views.MainPage"
+             Title="{Binding Title}">
+    <ContentPage.Content >
+        <StackLayout Spacing="10" x:Name="layout" >
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <Label Text="App for Showing nearby Devices!" />
+                <Button Text="Scan For Devices" Command="{Binding StartSearchDevicesCommand}"/>
+            </StackLayout>
+
+            <ListView ItemsSource="{Binding DevicesList}" HasUnevenRows="True" SelectionMode="None" >
+
+                <ListView.ItemTemplate >
+                    
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCell_Tapped">
+                            <StackLayout Padding="5" >
+                                <Label Text="{Binding Name}"
+                                   FontSize="Medium"
+                                   TextColor="Blue"/>
+                                <Label Text="{Binding MAC}"
+                                   FontSize="Small"
+                                   TextColor="Black"
+                                   />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+    
+
+</ContentPage>
